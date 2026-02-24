@@ -12,11 +12,17 @@
 					<span @click="navigate" class="underline">View List</span>
 				</router-link>
 			</div>
-			<Button
-				class="mt-4 mb-1 drop-shadow-sm py-5 text-base"
-				id="open-checkin-modal"
-				@click="handleEmployeeCheckin"
-			>
+				<Button
+					:variant="'solid'"
+					:class="[
+						'mt-4 mb-1 drop-shadow-sm py-5 text-base',
+						nextAction.action === 'IN'
+							? '!bg-green-600 !text-white hover:!bg-green-700'
+							: '!bg-red-600 !text-white hover:!bg-red-700'
+					]"
+					id="open-checkin-modal"
+					@click="handleEmployeeCheckin"
+				>
 				<template #prefix>
 					<FeatherIcon
 						:name="nextAction.action === 'IN' ? 'arrow-right-circle' : 'arrow-left-circle'"
@@ -68,10 +74,20 @@
 					</iframe>
 				</div>
 			</template>
+<Button
+  :loading="checkins.insert.loading"
+  variant="solid"
+  :class="[
+    'w-full py-5 text-sm disabled:bg-gray-700',
+    nextAction.action === 'IN'
+      ? '!bg-green-600 !text-white hover:!bg-green-700'
+      : '!bg-red-600 !text-white hover:!bg-red-700'
+  ]"
+  @click="submitLog(nextAction.action)"
+>
+  {{ __("Confirm {0}", [nextAction.label]) }}
+</Button>
 
-			<Button :loading="checkins.insert.loading" variant="solid" class="w-full py-5 text-sm disabled:bg-gray-700" @click="submitLog(nextAction.action)">
-				{{ __("Confirm {0}", [nextAction.label]) }}
-			</Button>
 		</div>
 	</ion-modal>
 </template>
