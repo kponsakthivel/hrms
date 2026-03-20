@@ -4,7 +4,7 @@
 	</a>
 	<h2>Frappe HR</h2>
 	<p align="center">
-		<p>Open Source, modern, and easy-to-use HR and Payroll Software</p>
+		<p>Open Source, modern, and easy-to-use HR and Payroll Software  installed in ISIPL</p>
 	</p>
 
 [![CI](https://github.com/frappe/hrms/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/frappe/hrms/actions/workflows/ci.yml)
